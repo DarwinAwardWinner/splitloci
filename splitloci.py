@@ -58,7 +58,12 @@ def main(sam, quiet, verbose, clobber_output_directory, infile, output_dir, min_
 
     A locus is a contiguous region with non-zero coverage, surrounded
     by regions of zero coverage. Splitting into loci allows one to
-    parallelize a Cufflinks assembly across machines in a cluster."""
+    parallelize a Cufflinks assembly across machines in a cluster.
+
+    The output directory will contain files named like loc000001.bam,
+    loc000002.bam, and so on, each containing one full locus (or
+    several full loci when using -m). Each output file will have an
+    identical header to the input file."""
     # Configure logging
     if quiet:
         logging.basicConfig(level=logging.WARN)
